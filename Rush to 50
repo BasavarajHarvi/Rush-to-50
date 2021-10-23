@@ -1,0 +1,62 @@
+def dice():
+    import random
+    global p1
+    dice=[1,2,3,4,5,6]
+    p1=random.choice(dice)
+    print("You got",p1)    
+def player1():
+    dice()
+    global play1
+    global scr1
+    global p1
+    scr1+=p1
+    print("---------")
+    return scr1
+def player2():
+    dice()
+    global play2
+    global scr2
+    scr2+=p1
+    print("---------")
+    return scr2
+r=[12,42,23,29]
+a=[5,20,35,11,18]
+scr1=0
+scr2=0
+def start():
+    print('''         ________________----------RUSH TO 50----------________________
+             This game is basically about rushing to the target i.e 50,You
+             will be finding some obstacles in the way which will decrease
+             your score,But there will be few shortcuts to the target too.
+             Enjoy the journey to 50''')
+start()
+pre=input("Press Enter to start the game : ")
+play1=input("Player1 Enter your name : ")
+play2=input("Player2 Enter your name : ")
+while (scr1 or scr2 )<50:
+    n=input("Press Enter")
+    player1()
+    if scr1 in r:
+        scr1-=10
+        print("Oops!!,Your score reduced by 10")
+    if scr1 in a:
+        scr1=+10
+        print("Yooo!!,Your score increased by 10") 
+    print(play1,"your score is",scr1)          
+    if scr1>=50:
+        print("Winner is : ",play1)
+        break
+    n=input("Press Enter")
+    player2()
+    if scr2 in r:
+        scr2-=10
+        print("Oops!!,Your score reduced by 10")
+    if scr2 in a:
+        scr2=+10
+        print("Yooo!!,Your score increased by 10") 
+    print(play2,"your score is",scr2)
+    if scr2>=50:
+        print("Winner is : ",play2)
+        break
+
+    
